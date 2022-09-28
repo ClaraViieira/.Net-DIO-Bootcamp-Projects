@@ -8,12 +8,10 @@ namespace DesafioEstacionamento
     {
         static void Main(string[] args)
         {
-            decimal precoInicial = 0;
-            decimal precoPorHora = 0;
-            Console.WriteLine("Bem-vindo ao sistema do MAX estacionamento!" + "\n" + "Digite o preço inicial: ");
-            precoInicial = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            Console.WriteLine("Digite o preço por hora: ");
-            precoPorHora = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.Write("Bem-vindo ao sistema do MAX estacionamento!" + "\n" + "Digite o preço inicial: ");
+            decimal precoInicial = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.Write("Digite o preço por hora: ");
+            decimal precoPorHora = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
             Estacionamento es = new Estacionamento(precoInicial, precoPorHora);
 
@@ -47,10 +45,9 @@ namespace DesafioEstacionamento
                         Console.WriteLine("Opção inválida");
                         break;
                 }
-                Console.WriteLine("Pressione qualquer tecla para continuar");
+                Console.WriteLine("Pressione qualquer tecla para continuar...");
                 Console.ReadLine();
             }
-
             Console.WriteLine("Programa encerrado!");
         }
     }

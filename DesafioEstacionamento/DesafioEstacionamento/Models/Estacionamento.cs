@@ -9,9 +9,7 @@ namespace DesafioEstacionamento.Models
     {
         private decimal _precoInicial { get; set; }
         private decimal _precoPorHora { get; set; }
-
         private List<string> _veiculos = new List<string>();
-
 
         public Estacionamento(decimal precoInicial, decimal precoPorHora)
         {
@@ -25,6 +23,7 @@ namespace DesafioEstacionamento.Models
             var placa = Console.ReadLine();
             _veiculos.Add(placa);
         }
+
         public void RemoverVeiculo()
         {
             Console.WriteLine("Digite a placa do veículo para remover:");
@@ -35,10 +34,9 @@ namespace DesafioEstacionamento.Models
                 decimal horasEstacionado = decimal.Parse(Console.ReadLine());
                 decimal valorTotal = _precoInicial + _precoPorHora * horasEstacionado;
                 _veiculos.Remove(placa);
-                Console.WriteLine("O veículo " + placa + " foi removido e o preço total foi de: R$ " + valorTotal.ToString("F2", CultureInfo.InvariantCulture));
+                Console.WriteLine("O veículo " + placa + "foi removido e o preço total foi de: " + valorTotal.ToString("C2", CultureInfo.InvariantCulture));
             }
             else
-
                 Console.WriteLine("Desculpe, esse veículo não está estacionado aqui. Confira se digitou a placa corretamente");
         }
 
@@ -51,9 +49,7 @@ namespace DesafioEstacionamento.Models
                     Console.WriteLine(veiculos.ToUpper());
             }
             else
-            {
                 Console.WriteLine("Não há veículos estacionados.");
-            }
         }
     }
 }
