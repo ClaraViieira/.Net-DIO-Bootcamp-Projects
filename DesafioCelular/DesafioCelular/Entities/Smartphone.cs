@@ -6,15 +6,18 @@ namespace DesafioCelular.Entities
 {
     class Smartphone
     {
-        public string Modelo { get; set; }
-        public long Numero { get; set; }
-        public int Memoria { get; set; }
+        public string Modelo { get; private set; }
+        public long Numero { get; private set; }
+        public int Memoria { get; private set; }
 
-        public Smartphone(string modelo, long numero, int memoria)
+        private readonly IAplicativos _aplicativos;
+
+        public Smartphone(string modelo, long numero, int memoria, IAplicativos aplicativos)
         {
             Modelo = modelo;
             Numero = numero;
             Memoria = memoria;
+            _aplicativos = aplicativos;
         }
 
         public void ImprimirDados()
@@ -34,7 +37,7 @@ namespace DesafioCelular.Entities
             Console.WriteLine("Recebendo ligação...");
         }
 
-        public void App(IAplicativos _aplicativos, string nomeApp)
+        public void App(string nomeApp)
         {
             _aplicativos.InstalarAplicativos(nomeApp);
         }

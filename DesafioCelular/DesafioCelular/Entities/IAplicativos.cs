@@ -6,6 +6,6 @@ namespace DesafioCelular.Entities
 {
     interface IAplicativos
     {
-        public void InstalarAplicativos(string nomeApp);
+        void InstalarAplicativos(string nomeApp);
     }
 }

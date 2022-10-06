@@ -8,7 +8,7 @@ namespace DesafioCelular.Entities
     {
         public void InstalarAplicativos(string nomeApp)
         {
-            Console.WriteLine($"O aplicativo {nomeApp} da PlayStore foi instalado com sucesso!");
+            Console.WriteLine("O aplicativo " + nomeApp + " da PlayStore foi instalado com sucesso!");
         }
     }
 }
