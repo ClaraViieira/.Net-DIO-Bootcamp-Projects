@@ -7,55 +7,31 @@ namespace DesafioCelular
     {
         static void Main(string[] args)
         {
-            Console.Write("Informe a marca do seu telefone: ");
-            string marca = Console.ReadLine();
-            Console.Write("Número do telefone: ");
-            long numero = long.Parse(Console.ReadLine());
-            Console.Write("Modelo do telefone: ");
-            string modelo = Console.ReadLine();
-            Console.Write("Quantidade de memória em GB (64 ou 128): ");
-            int memoria = int.Parse(Console.ReadLine());
-            Console.Write("Qual aplicativo deseja instalar? ");
-            string aplicativo = Console.ReadLine();
+            Console.WriteLine("Informe aos dados do seu telefone MOTOROLA: ");
+            Console.WriteLine("Digite na mesma linha o modelo, número, memória em GB (64 ou 128) e o app que deseja baixar em seu celular: ");
+            string[] motorola = Console.ReadLine().Split(',');
+            string modeloMotorola = motorola[0];
+            long numeroMotorola = long.Parse(motorola[1]);
+            int memoriaMotorola = int.Parse(motorola[2]);
+            string appMotorola = motorola[3];
+            Console.WriteLine("Informe aos dados do seu telefone IPHONE: ");
+            Console.WriteLine("Digite na mesma linha o modelo, número, memória em GB (64 ou 128) e o app que deseja baixar em seu celular: ");
+            string[] iphone = Console.ReadLine().Split(',');
+            string modeloIphone = iphone[0];
+            long numeroIphone = long.Parse(iphone[1]);
+            int memoriaIphone = int.Parse(iphone[2]);
+            string appIphone = iphone[3];
 
-            bool menu = true;
-
-            while (menu)
-            {
-                Console.Clear();
-                Console.WriteLine("Escolha uma das opções abaixo de acordo com seu telefone: ");
-                Console.WriteLine("1 - Iphone");
-                Console.WriteLine("2 - Motorola");
-                Console.WriteLine("3 - Encerrar");
-
-                switch (Console.ReadLine())
-                {
-                    case "1":
-                        Console.Clear();
-                        Smartphone iphone = new Smartphone(marca, numero, modelo, memoria);
-                        iphone.ImprimirDados();
-                        iphone.Ligar();
-                        iphone.App(new Iphone(), aplicativo);
-                        break;
-                    case "2":
-                        Console.Clear();
-                        Smartphone motorola = new Smartphone(marca, numero, modelo, memoria);
-                        motorola.ImprimirDados();
-                        motorola.ReceberLigacoes();
-                        motorola.App(new Motorola(), aplicativo);
-                        break;
-                    case "3":
-                        menu = false;
-                        break;
-                    default:
-                        Console.Clear();
-                        Console.WriteLine("Opção inválida!");
-                        break;
-                }
-                Console.WriteLine("Pressione qualquer tecla para continuar...");
-                Console.ReadLine();
-            }
-            Console.WriteLine("Programa encerrado!");
+            Console.Clear();
+            Smartphone celularMotorola = new Smartphone(modeloMotorola, numeroMotorola, memoriaMotorola);
+            celularMotorola.ImprimirDados();
+            celularMotorola.ReceberLigacoes();
+            celularMotorola.App(new Motorola(), appMotorola);
+            Console.WriteLine();
+            Smartphone celularIphone = new Smartphone(modeloIphone, numeroIphone, memoriaIphone);
+            celularIphone.ImprimirDados();
+            celularIphone.Ligar();
+            celularIphone.App(new Iphone(), appIphone);
         }
     }
 }
